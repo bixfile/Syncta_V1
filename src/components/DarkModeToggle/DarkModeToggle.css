@@ -1,0 +1,43 @@
+.dark-mode-toggle {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 9995;
+  transition: all 0.3s ease;
+}
+
+.dark-mode-toggle:hover {
+  background: rgba(0, 102, 255, 0.2);
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(0, 102, 255, 0.3);
+}
+
+.dark .dark-mode-toggle {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark .dark-mode-toggle:hover {
+  background: rgba(255, 0, 128, 0.2);
+  box-shadow: 0 0 20px rgba(255, 0, 128, 0.3);
+}
+
+@media (max-width: 768px) {
+  .dark-mode-toggle {
+    width: 48px;
+    height: 48px;
+    top: 16px;
+    right: 16px;
+  }
+}

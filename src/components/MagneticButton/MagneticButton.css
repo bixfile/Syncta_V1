@@ -1,0 +1,101 @@
+.magnetic-button {
+  position: relative;
+  padding: 16px 32px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.magnetic-button-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Primary variant */
+.magnetic-button.primary {
+  background: linear-gradient(135deg, #0066FF, #6B00FF);
+  color: white;
+  box-shadow: 0 4px 16px rgba(0, 102, 255, 0.3);
+}
+
+.magnetic-button.primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 24px rgba(0, 102, 255, 0.5);
+}
+
+/* Secondary variant */
+.magnetic-button.secondary {
+  background: transparent;
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: none;
+}
+
+.magnetic-button.secondary:hover {
+  background: linear-gradient(135deg, rgba(0, 102, 255, 0.2), rgba(255, 0, 128, 0.2));
+  border-color: #0066FF;
+}
+
+/* Ripple effect */
+.ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  transform: translate(-50%, -50%) scale(0);
+  animation: ripple-animation 0.6s ease-out;
+  pointer-events: none;
+}
+
+@keyframes ripple-animation {
+  to {
+    transform: translate(-50%, -50%) scale(4);
+    opacity: 0;
+  }
+}
+
+/* Confetti particles */
+.confetti-particle {
+  position: fixed;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 10000;
+  will-change: transform;
+}
+
+/* Focus styles */
+.magnetic-button:focus-visible {
+  outline: 2px solid #0066FF;
+  outline-offset: 4px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  .magnetic-button {
+    padding: 14px 28px;
+    font-size: 14px;
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .magnetic-button,
+  .magnetic-button-inner,
+  .ripple,
+  .confetti-particle {
+    animation: none !important;
+    transition: none !important;
+  }
+}
